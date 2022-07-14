@@ -6,6 +6,9 @@
 " License:      MIT
 
 hi StatusBufferLineActive ctermbg=NONE guibg=NONE ctermfg=LightGreen guifg=LightGreen
+augroup StatusBufferLineColor
+    autocmd Colorscheme * hi StatusBufferLineActive ctermbg=NONE guibg=NONE ctermfg=LightGreen guifg=LightGreen
+augroup END
 
 if !exists('g:sbline_show_bfnr')
     let g:sbline_show_bfnr=1
