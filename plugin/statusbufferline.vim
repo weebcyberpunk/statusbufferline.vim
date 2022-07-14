@@ -21,20 +21,25 @@ endif
 function! StatusBufferLine()
 
     let l:status=""
+    let l:bufs=getbufinfo({'buflisted':1})
+    let l:counter=0
 
-    for l:bufr in getbufinfo({'buflisted':1})
+    for l:bufr in l:bufs
 
-        let l:status..="|"
+        if l:counter != 0
+            let l:status..="| "
+        endif
 
-        if l:bufr.bufnr == bufnr('%')
+        if l:bufr.bufnr == bufnr('%') && len(l:bufs) > 1
             let l:status..="%#StatusBufferLineActive#"
         endif
 
+
         if g:sbline_show_bfnr == 1
-            let l:status..=" "..l:bufr.bufnr
+            let l:status..=l:bufr.bufnr.." "
         endif
 
-        let l:status..=" "..bufname(bufr.bufnr).." "
+        let l:status..=bufname(bufr.bufnr).." "
 
         if l:bufr.changed && g:sbline_show_modified == 1
             let l:status..="[+] "
@@ -44,13 +49,14 @@ function! StatusBufferLine()
             let l:status..="%#*#"
         endif
 
+        let l:counter+=1
+
     endfor
 
-    let l:status..="|"
     if g:sbline_ruler == 1
         let l:status..='%=%-14.(%l,%c%V%) %P'
     elseif g:sbline_ruler == 2
-        let l:status..='%=%-10.(%l,%c:%L%)'
+        let l:status..='%=%-10.(%l,%2c:%L%)'
     endif
 
     return l:status
