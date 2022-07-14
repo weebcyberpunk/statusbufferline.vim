@@ -27,6 +27,10 @@ if !exists('g:sbline_to_tabs')
     let g:sbline_to_tabs=1
 endif
 
+if !exists('g:sbline_crop_bufname')
+    let g:sbline_crop_bufname=1
+endif
+
 function! TabList()
 
     let l:list=""
@@ -73,9 +77,16 @@ function! StatusBufferLine()
             let l:status..=l:bufr.bufnr.." "
         endif
 
-        let l:status..=bufname(bufr.bufnr).." "
+        let l:bufname=bufname(bufr.bufnr)
 
-        if l:bufr.changed && g:sbline_show_modified == 1
+        if g:sbline_crop_bufname
+            let l:bufnamesep=strridx(l:bufname, "/")
+            let l:bufname=l:bufname[l:bufnamesep+1:]
+        endif
+
+        let l:status..=l:bufname.." "
+
+        if l:bufr.changed && g:sbline_show_modified
             let l:status..="[+] "
         endif
 
