@@ -3,6 +3,7 @@
 " Last Change:  13 July 2022
 " Mainteiner:   GG https://github.com/weebcyberpunk
 " Location:     plugin/statusbufferline.vim
+" License:      MIT
 
 hi StatusBufferLineActive ctermbg=NONE guibg=NONE ctermfg=LightGreen guifg=LightGreen
 

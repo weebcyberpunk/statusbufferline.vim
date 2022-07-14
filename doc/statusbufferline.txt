@@ -1,0 +1,30 @@
+*statusbufferline.txt* statusbufferline.vim
+
+Author: GG weebcyberpunk@gmail.com
+Version: 1.0
+Homepage: github.com/weebcyberpunk/statusbufferline.vim
+License: MIT
+
+==============================================================================
+INTRODUCTION                                             *statusbufferline.vim*
+
+This plugin transforms the |statusline| on a buffer list.
+
+==============================================================================
+CONFIGURATION                                      *statusbufferline-variables*
+
+*g:sbline_show_bfnr*         If 1 (default), the buffers are listed with their
+                           respective number. 0 to disable.  
+
+*g:sbline_show_modified*     If 1 (default), shows if a buffer is modified.  
+
+*g:sbline_ruler*             If 1 (default), emulated the Vim ruler on the righ 
+                           side of the statusline. If 2, shows a more minimal 
+                           ruler than Vim's default and if 0, don't show any 
+                           ruler.
+
+The coloring of the current buffer is setted by the group
+*StatusBufferLineActive* and the others by the default |StatusLine| group.
+
+------------------------------------------------------------------------------
+vim:tw=78:ts=4:ft=help:norl: 
