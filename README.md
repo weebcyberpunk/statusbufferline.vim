@@ -1,6 +1,6 @@
 # statusbufferline.vim
 
-This plugin transforms the Vim statusline in a buffer list.
+This plugin transforms the Vim statusline or tabline in a buffer list.
 
 [statusbufferline](screenshot.png)
 
